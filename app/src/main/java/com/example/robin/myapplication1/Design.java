@@ -15,15 +15,6 @@ import android.widget.ImageView;
 
 public class Design extends Activity {
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    String size;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +22,7 @@ public class Design extends Activity {
         setContentView(R.layout.activity_design);
         Context context = this;
 
+        /////////////////////////////////////////////////////////////////////////////
         ImageView IVham = (ImageView) findViewById(R.id.IVham);
         IVham.setTag("ham");
         ImageView IVonion = (ImageView) findViewById(R.id.IVonion);
@@ -51,7 +43,7 @@ public class Design extends Activity {
         /////////////////////////////////////////////////////////////////////////////////
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.custom_dialog);
-        dialog.setTitle("Choose A size of pizza");
+        dialog.setTitle("Choose a pizza size:");
         dialog.show();
 
         Button small = (Button) dialog.findViewById(R.id.BcustomDialogSmall);
@@ -61,11 +53,12 @@ public class Design extends Activity {
         Button large = (Button) dialog.findViewById(R.id.BcustomDialogLarge);
         large.setTag("large");
 
-        View.OnClickListener onDialogClickedListener = new View.OnClickListener(){
+        View.OnClickListener onDialogClickedListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String size = (String)v.getTag();
-                setSize(size);
+                String size = (String) v.getTag(); // Get string from ImageView.
+                DesignOrder order = new DesignOrder(size);//Creat object of DesignOrder passing size
+                setOrder(order); //Set order
                 dialog.cancel();
             }
         };
@@ -73,9 +66,11 @@ public class Design extends Activity {
         small.setOnClickListener(onDialogClickedListener);
         medium.setOnClickListener(onDialogClickedListener);
         large.setOnClickListener(onDialogClickedListener);
-        ///////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+
     }
 
+        ///////////////////////////////////////////////////////////////////////////////
 
     View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
         @Override
@@ -116,21 +111,25 @@ public class Design extends Activity {
                     ClipData.Item item = event.getClipData().getItemAt(0);
                     String topping = (String) item.getText();
 
-                    if(topping.equals("ham")){
-                        ImageView IVham_Pizza = (ImageView) findViewById(R.id.IVham_pizza);
-                        IVham_Pizza.setAlpha(1.0f);
+                    if(topping.equals("ham")){ //Condition for if the data passed is a certain topping
+                        ImageView IVham_Pizza = (ImageView) findViewById(R.id.IVham_pizza); //Define imahe from XML as object
+                        IVham_Pizza.setAlpha(1.0f); //Make image Viewable
+                        setTopping(topping,getOrder()); //Pass topping to DesginOrder class
                     }
                     else if (topping.equals("onion")){
                         ImageView IVonion_Pizza = (ImageView) findViewById(R.id.IVonion_pizza);
                         IVonion_Pizza.setAlpha(1.0f);
+                        setTopping(topping,getOrder());
                     }
                     else if (topping.equals("pepper")){
                         ImageView IVpepper_Pizza = (ImageView) findViewById(R.id.IVpepper_pizza);
                         IVpepper_Pizza.setAlpha(1.0f);
+                        setTopping(topping,getOrder());
                     }
                     else if (topping.equals("pineapple")){
                         ImageView IVpineapple_Pizza = (ImageView) findViewById(R.id.IVpinapple_pizza);
                         IVpineapple_Pizza.setAlpha(1.0f);
+                        setTopping(topping,getOrder());
                     }
 
                     return true;
@@ -138,6 +137,28 @@ public class Design extends Activity {
             return false;
         }
     };
+
+    public void setOrder(DesignOrder order) {
+        this.order = order;
+    }
+
+    public DesignOrder getOrder() {
+        return order;
+    }
+
+    DesignOrder order;
+
+
+    public void setTopping(String topping,DesignOrder order){ //Function to allow the toppings passed to it
+        order.addToppings(topping);                          //To be added to the List in order using DesignOrder's
+                                                            //addToppings method
+    }
+
+
+
+
+
+    ////////////////////////////////////////
 
 }
 
