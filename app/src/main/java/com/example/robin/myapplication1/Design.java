@@ -11,6 +11,7 @@ import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.graphics.Color;
 
 
 public class Design extends Activity {
@@ -19,8 +20,76 @@ public class Design extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Set XML layout
+        ///////////////////////////////////////////////////////////////////////////
         setContentView(R.layout.activity_design);
-        Context context = this;
+        setContext(this);
+        ///////////////////////////////////////////////////////////////////////////
+        final Button buttonSmall = (Button)findViewById(R.id.buttonSmall);
+        final Button buttonMedium = (Button)findViewById(R.id.buttonMeduim);
+        final Button buttonLarge = (Button)findViewById(R.id.buttonLarge);
+
+        buttonSmall.setTag("small");
+        buttonMedium.setTag("medium");
+        buttonLarge.setTag("large");
+
+        View.OnClickListener onClickListenerSize = new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                String size = (String)v.getTag();
+                if(size.equals("small")){
+                    buttonSmall.setBackgroundColor(Color.RED);
+                    DesignOrder order = getOrder();
+                    String prevoiusSize = order.getSize();
+                    if(prevoiusSize.equals("small")){
+                        buttonSmall.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("medium")){
+                        buttonMedium.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("large")){
+                        buttonLarge.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    order.setSize(size);
+                    order.total();
+                }
+                else if(size.equals("medium")){
+                    buttonMedium.setBackgroundColor(Color.RED);
+                    DesignOrder order = getOrder();
+                    String prevoiusSize = order.getSize();
+                    if(prevoiusSize.equals("small")){
+                        buttonSmall.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("medium")){
+                        buttonMedium.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("large")){
+                        buttonLarge.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    order.setSize(size);
+                    order.total();
+                }
+                else{
+                    buttonLarge.setBackgroundColor(Color.RED);
+                    DesignOrder order = getOrder();
+                    String prevoiusSize = order.getSize();
+                    if(prevoiusSize.equals("small")){
+                        buttonSmall.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("medium")){
+                        buttonMedium.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    else if(prevoiusSize.equals("large")){
+                        buttonLarge.setBackgroundResource(android.R.drawable.btn_default);
+                    }
+                    order.setSize(size);
+                    order.total();
+                }
+            }
+        };
+
+        buttonSmall.setOnClickListener(onClickListenerSize);
+        buttonMedium.setOnClickListener(onClickListenerSize);
+        buttonLarge.setOnClickListener(onClickListenerSize);
 
         /////////////////////////////////////////////////////////////////////////////
         ImageView IVham = (ImageView) findViewById(R.id.IVham);
@@ -39,7 +108,6 @@ public class Design extends Activity {
 
         ImageView IVbase = (ImageView) findViewById(R.id.IVbase);
         IVbase.setOnDragListener(dragListener);
-
         /////////////////////////////////////////////////////////////////////////////////
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.custom_dialog);
@@ -57,8 +125,20 @@ public class Design extends Activity {
             @Override
             public void onClick(View v) {
                 String size = (String) v.getTag(); // Get string from ImageView.
-                DesignOrder order = new DesignOrder(size);//Creat object of DesignOrder passing size
+                DesignOrder order = new DesignOrder(size,getContext());//Creates object of DesignOrder passing size & context
+                order.total();
                 setOrder(order); //Set order
+
+                if(size.equals("small")){
+                    buttonSmall.setBackgroundColor(Color.RED);
+                }
+                else if(size.equals("medium")){
+                    buttonMedium.setBackgroundColor(Color.RED);
+                }
+                else if(size.equals("large")){
+                    buttonLarge.setBackgroundColor(Color.RED);
+                }
+
                 dialog.cancel();
             }
         };
@@ -66,11 +146,9 @@ public class Design extends Activity {
         small.setOnClickListener(onDialogClickedListener);
         medium.setOnClickListener(onDialogClickedListener);
         large.setOnClickListener(onDialogClickedListener);
-        //////////////////////////////////////////////////////////////////////
-
     }
 
-        ///////////////////////////////////////////////////////////////////////////////
+//Outside onCreate method
 
     View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
         @Override
@@ -112,22 +190,22 @@ public class Design extends Activity {
                     String topping = (String) item.getText();
 
                     if(topping.equals("ham")){ //Condition for if the data passed is a certain topping
-                        ImageView IVham_Pizza = (ImageView) findViewById(R.id.IVham_pizza); //Define imahe from XML as object
+                        ImageView IVham_Pizza = (ImageView) findViewById(R.id.ham); //Define imahe from XML as object
                         IVham_Pizza.setAlpha(1.0f); //Make image Viewable
                         setTopping(topping,getOrder()); //Pass topping to DesginOrder class
                     }
                     else if (topping.equals("onion")){
-                        ImageView IVonion_Pizza = (ImageView) findViewById(R.id.IVonion_pizza);
+                        ImageView IVonion_Pizza = (ImageView) findViewById(R.id.onion);
                         IVonion_Pizza.setAlpha(1.0f);
                         setTopping(topping,getOrder());
                     }
                     else if (topping.equals("pepper")){
-                        ImageView IVpepper_Pizza = (ImageView) findViewById(R.id.IVpepper_pizza);
+                        ImageView IVpepper_Pizza = (ImageView) findViewById(R.id.pepper);
                         IVpepper_Pizza.setAlpha(1.0f);
                         setTopping(topping,getOrder());
                     }
                     else if (topping.equals("pineapple")){
-                        ImageView IVpineapple_Pizza = (ImageView) findViewById(R.id.IVpinapple_pizza);
+                        ImageView IVpineapple_Pizza = (ImageView) findViewById(R.id.pineapple);
                         IVpineapple_Pizza.setAlpha(1.0f);
                         setTopping(topping,getOrder());
                     }
@@ -148,17 +226,20 @@ public class Design extends Activity {
 
     DesignOrder order;
 
-
     public void setTopping(String topping,DesignOrder order){ //Function to allow the toppings passed to it
-        order.addToppings(topping);                          //To be added to the List in order using DesignOrder's
-                                                            //addToppings method
+        order.addToppings(topping);//To be added to the List in order using DesignOrder's
+        order.total();            //Works out the total of the order and displays it
     }
 
+    public Context getContext() {
+        return context;
+    }
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
-
-
-    ////////////////////////////////////////
+    Context context;
 
 }
 

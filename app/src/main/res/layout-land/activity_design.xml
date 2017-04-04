@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="3"
-            android:id="@+id/buttonsmall"
+            android:id="@+id/buttonSmall"
             android:layout_gravity="start"
             />
 
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="4"
-            android:id="@+id/buttonmeduim"
+            android:id="@+id/buttonMeduim"
             android:layout_gravity="start"
             />
 
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="5"
-            android:id="@+id/buttonlarge"
+            android:id="@+id/buttonLarge"
             android:layout_gravity="start"
             android:layout_marginRight="50dp"
             />
@@ -144,7 +144,8 @@
         android:layout_marginTop="44dp"
         android:layout_alignTop="@+id/gridLayout2"
         android:layout_toRightOf="@+id/gridLayout2"
-        android:layout_toEndOf="@+id/gridLayout2">
+        android:layout_toEndOf="@+id/gridLayout2"
+        android:id="@+id/frameLayout">
 
         <ImageView
             android:id="@+id/IVbase"
@@ -154,27 +155,27 @@
         </ImageView>
 
         <ImageView
-            android:id="@+id/IVham_pizza"
+            android:id="@+id/ham"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/ham"
             android:alpha="0"/>
 
         <ImageView
-            android:id="@+id/IVonion_pizza"
+            android:id="@+id/onion"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/onion"
             android:alpha="0"/>
 
         <ImageView
-            android:id="@+id/IVpepper_pizza"
+            android:id="@+id/pepper"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/pepper"
             android:alpha="0"/>
         <ImageView
-            android:id="@+id/IVpinapple_pizza"
+            android:id="@+id/pineapple"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/pine"
@@ -182,5 +183,17 @@
 
     </FrameLayout>
 
-    </RelativeLayout>
+    <TableLayout
+        android:id="@+id/tableForSideBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/gridLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        >
+
+    </TableLayout>
+
+</RelativeLayout>
+
 
