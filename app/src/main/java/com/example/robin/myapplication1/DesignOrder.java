@@ -11,6 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
  * Created by Robin on 3/23/2017.
  */
 
-public class DesignOrder extends Activity {
+public class DesignOrder extends Activity{
 
     public Context context;
 
@@ -30,6 +31,16 @@ public class DesignOrder extends Activity {
         this.size = size;
     }
     private String size;
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    private String total;
 
     private static final int NUM_ROWS = 1;
     private static final int NUM_COLS = 2;
@@ -43,8 +54,13 @@ public class DesignOrder extends Activity {
     }
     ////////////////////////////////////////////////////////////////////////////
 
+    public ArrayList<String> getToppings() {
+        return toppings;
+    }
+
+    private ArrayList<String> toppings = new ArrayList<String>(); //Creating a List to store toppings
+
     ////////////////////////////////////////////////////////////////////////////
-    private List<String> toppings = new ArrayList<String>(); //Creating a List to store toppings
 
     public void addToppings(String topping) { //A method to which a topping is passed to each time a topng is added
         toppings.add(topping);
@@ -91,7 +107,7 @@ public class DesignOrder extends Activity {
         ///////////////////////////////////////////////////////////////////////////////////////
     }
 
-    public void total(){//Method used to total order and amend EditText
+    public String total(){//Method used to total order and amend EditText
 
         int numOfToppings = toppings.size();//Num of toppings in array list by using size method
         EditText editText = (EditText)((Design)context).findViewById(R.id.etTotal);
@@ -106,6 +122,8 @@ public class DesignOrder extends Activity {
             BigDecimal bd = new BigDecimal(Float.toString(total));//Creating object of BigDecimal passing total as string
             bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);//Using BD setScale method to indicate num of decimal places
             editText.setText(bd.toString());//Set the text to the total.
+            setTotal(bd.toString());
+
         }
         else if (size.equals("medium")){
             float baseCost = 7.00f;
@@ -114,6 +132,8 @@ public class DesignOrder extends Activity {
             BigDecimal bd = new BigDecimal(Float.toString(total));
             bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
             editText.setText(bd.toString());
+            setTotal(bd.toString());
+
         }
         else if (size.equals("large")){
             float baseCost = 9.00f;
@@ -122,9 +142,13 @@ public class DesignOrder extends Activity {
             BigDecimal bd = new BigDecimal(Float.toString(total));
             bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
             editText.setText(bd.toString());
+            setTotal(bd.toString());
+
         }
+        return getTotal();
     }
 }
+
 
 
 

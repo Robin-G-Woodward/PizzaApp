@@ -91,15 +91,118 @@
 
         "Components with responsive elevations may encounter other components as they move between "
         "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
+
 
     </string>
+
+
+    <string name="SmallMargherita">SmallMargherita</string>
+    <string name="MediumMargherita">MediumMargherita</string>
+    <string name="LargeMargherita">LargeMargherita</string>
+
+    <string name="SmallQuatroFormaggio">SmallQuatroFormaggio</string>
+    <string name="MediumQuatroFormaggio">MediumQuatroFormaggio</string>
+    <string name="LargeQuatroFormaggio">LargeQuatroFormaggio</string>
+
+    <string name="SmallAlFunghi">SmallAlFunghi</string>
+    <string name="MediumAlFunghi">MediumAlFunghi</string>
+    <string name="LargeAlFunghi">LargeAlFunghi</string>
+
+    <string name="SmallVegetariano">SmallVegetariano</string>
+    <string name="MediumVegetariano">MediumVegetariano</string>
+    <string name="LargeVegetariano">LargeVegetariano</string>
+
+    <string name="SmallSpeciale">SmallSpeciale</string>
+    <string name="MediumSpeciale">MediumSpeciale</string>
+    <string name="LargeSpeciale">LargeSpeciale</string>
+
+    <string name="SmallMightyMeaty">SmallMightyMeaty</string>
+    <string name="MediumMightyMeaty">MediumMightyMeaty</string>
+    <string name="LargeMightyMeaty">LargeMightyMeaty</string>
+
+    <string name="SmallValention">SmallValention</string>
+    <string name="MediumValention">MediumValention</string>
+    <string name="LargeValention">LargeValention</string>
+
+    <string name="SmallStagioni">SmallStagioni</string>
+    <string name="MediumStagioni">MediumStagioni</string>
+    <string name="LargeStagioni">LargeStagioni</string>
+
+    <string name="SmallHawaiian">SmallHawaiian</string>
+    <string name="MediumHawaiian">MediumHawaiian</string>
+    <string name="LargeHawaiian">LargeHawaiian</string>
+
+    <string name="SmallPancetta">SmallPancetta</string>
+    <string name="MediumPancetta">MediumPancetta</string>
+    <string name="LargePancetta">LargePancetta</string>
+
+    <string name="SmallQuatroStagioni">SmallQuatroStagioni</string>
+    <string name="MediumQuatroStagioni">MediumQuatroStagioni</string>
+    <string name="LargeQuatroStagioni">LargeQuatroStagioni</string>
+
+    <string name="SmallToscanna">SmallToscanna</string>
+    <string name="MediumToscanna">MediumToscanna</string>
+    <string name="LargeToscanna">LargeToscanna</string>
+
+    <string name="SmallPepperoni">SmallPepperoni</string>
+    <string name="MediumPepperoni">MediumPepperoni</string>
+    <string name="LargePepperoni">LargePepperoni</string>
+
+    <string name="SmallSiciliano">SmallSiciliano</string>
+    <string name="MediumSiciliano">MediumSiciliano</string>
+    <string name="LargeSiciliano">LargeSiciliano</string>
+
+    <string name="SmallBologneseSupremo">SmallBologneseSupremo</string>
+    <string name="MediumBologneseSupremo">MediumBologneseSupremo</string>
+    <string name="LargeBologneseSupremo">LargeBologneseSupremo</string>
+
+    <string name="SmallPollo">SmallPollo</string>
+    <string name="MediumPollo">MediumPollo</string>
+    <string name="LargePollo">LargePollo</string>
+
+    <string name="SmallPolloFunghi">SmallPolloFunghi</string>
+    <string name="MediumPolloFunghi">MediumPolloFunghi</string>
+    <string name="LargePolloFunghi">LargePolloFunghi</string>
+
+    <string name="SmallBBQChicken">SmallBBQChicken</string>
+    <string name="MediumBBQChicken">MediumBBQChicken</string>
+    <string name="LargeBBQChicken">LargeBBQChicken</string>
+
+    <string name="SmallMexicano">SmallMexicano</string>
+    <string name="MediumMexicano">MediumMexicano</string>
+    <string name="LargeMexicano">LargeMexicano</string>
+
+    <string name="SmallHotAndSpicy">SmallHotAndSpicy</string>
+    <string name="MediumHotAndSpicy">MediumHotAndSpicy</string>
+    <string name="LargeHotAndSpicy">LargeHotAndSpicy</string>
+
+    <string name="SmallHotBeef">SmallHotBeef</string>
+    <string name="MediumHotBeef">MediumHotBeef</string>
+    <string name="LargeHotBeef">LargeHotBeef</string>
+
+    <string name="SmallSpicyChicken">SmallSpicyChicken</string>
+    <string name="MediumSpicyChicken">MediumSpicyChicken</string>
+    <string name="LargeSpicyChicken">LargeSpicyChicken</string>
+
+    <string name="SmallSpicyCombo">SmallSpicyCombo</string>
+    <string name="MediumSpicyCombo">MediumSpicyCombo</string>
+    <string name="LargeSpicyCombo">LargeSpicyCombo</string>
+
+    <string name="SmallMarinara">SmallMarinara</string>
+    <string name="MediumMarinara">MediumMarinara</string>
+    <string name="LargeMarinara">LargeMarinara</string>
+
+    <string name="SmallCaribbean">SmallCaribbean</string>
+    <string name="MediumCaribbean">MediumCaribbean</string>
+    <string name="LargeCaribbean">LargeCaribbean</string>
+
+    <string name="SmallAllMighty">SmallAllMighty</string>
+    <string name="MediumAllMighty">MediumAllMighty</string>
+    <string name="LargeAllMighty">LargeAllMighty</string>
+
+    <string name="SmallBBQMeatballMayhem">SmallBBQMeatballMayhem</string>
+    <string name="MediumBBQMeatballMayhem">MediumBBQMeatballMayhem</string>
+    <string name="LargeBBQMeatballMayhem">LargeBBQMeatballMayhem</string>
+
 
 </resources>

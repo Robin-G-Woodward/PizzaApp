@@ -92,6 +92,27 @@
             android:layout_column="7"
             android:layout_gravity="start"
             />
+        <Button
+            android:text="Finalize Design"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="9"
+            android:id="@+id/buttonCompleteDesign"
+            android:layout_gravity="start"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            />
+
+        <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="8"
+            android:id="@+id/buttonBack"
+            android:layout_gravity="start"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            />
 
     </GridLayout>
 

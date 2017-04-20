@@ -10,29 +10,51 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".Design"
-            android:screenOrientation="landscape">
+            android:name=".Login"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.example.robin.myapplication1"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Register"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Menu_Design"
-            android:screenOrientation="landscape">
-            >
-        </activity>
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            />
+
         <activity
             android:name=".Menu"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.some.task.affinity"
+            />
+
         <activity
-            android:name=".Login"
-            android:screenOrientation="landscape" />
+            android:name=".Design"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.some.other.affinity"
+            />
+
+        <activity
+            android:name=".Menu_Design"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".CompletedOrder"
+            android:windowSoftInputMode="stateHidden" />
 
     </application>
 

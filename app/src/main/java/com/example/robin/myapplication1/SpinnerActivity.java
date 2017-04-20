@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 
 public class SpinnerActivity implements AdapterView.OnItemSelectedListener {
     ////////////////////////////////////////////
@@ -21,20 +22,22 @@ public class SpinnerActivity implements AdapterView.OnItemSelectedListener {
     }
     //////////////////////////////////////////////////////////////////////////////
 
-    public Integer getPreviousNum() {
+    public int getPreviousNum() {
         return previousNum;
     }
 
-    public void setPreviousNum(Integer previousNum) {
+    public void setPreviousNum(int previousNum) {
         this.previousNum = previousNum;
     }
 
-    private Integer previousNum = 0;
+    private int previousNum = 0;
 
     ////////////////////////////////////////////////////////////////////////////
 
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Integer num = (Integer) parent.getItemAtPosition(position);//Returns the value selected from drop box
+        
+        int num = (int) parent.getItemAtPosition(position);//Returns the value selected from drop box
         BufferedReader br = null;//Define the buffered reader outside the scope of where it is used
         try { //Need to wrap with try catch to handle FileNotFoundException and IOException
             InputStream in = context.getAssets().open("id_to_cost.txt"); //Creates input stream from txt in assets file
@@ -46,20 +49,25 @@ public class SpinnerActivity implements AdapterView.OnItemSelectedListener {
                 String[] parts = line.split("-");//Create an array of the ID and COST
 
                 if (parts[((parts.length) - 2)].equals(id_of_spinner)) {
-                    Integer price = Integer.parseInt(parts[((parts.length) - 1)]);//Then set price of pizza selected
-                    EditText etTotal = (EditText) (context).findViewById(R.id.etTotal);//Define EditText for total in Java
+                    float price = (Float.valueOf(parts[((parts.length) - 1)]))/100;//Converts string cost from txt to int and sets
+                                                                              //and sets as variable
+                    EditText etTotal = (EditText) (context).findViewById(R.id.etTotal);//Create object of edit text from Menu Activtiy
                     if ( num > getPreviousNum()){
-                        Integer costCurrent = (num-getPreviousNum())*price;
-                        Integer previousTotal = Integer.parseInt(etTotal.getText().toString());//Gets total in EditText
-                        Integer total = costCurrent + previousTotal; //Adds total to additional cost of new of pizza/s
-                        etTotal.setText(total.toString());//Changes total in EditText
+                        float costCurrent = (num-getPreviousNum())*price;
+                        float previousTotal = Float.valueOf(etTotal.getText().toString());//Gets total in EditText
+                        float total = costCurrent + previousTotal; //Adds total to additional cost of new of pizza/s
+                        BigDecimal bd = new BigDecimal(Float.toString(total));//Creating object of BigDecimal passing total as string
+                        bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);//Using BD setScale method to indicate num of decimal places
+                        etTotal.setText(bd.toString());//Changes total in EditText
                     }else if(num == getPreviousNum()){
-                        //If they clicked on the dropbox again but don't want to change number do nothing
+                        //If they clicked on the dropbox again but don't want to change number, do nothing
                     } else {//If they have chosen a fewer number of pizza
-                        Integer costCurrent = (getPreviousNum()-num)*price;
-                        Integer previousTotal = Integer.parseInt(etTotal.getText().toString());//Gets total in EditText
-                        Integer total = previousTotal - costCurrent; //Makes new total
-                        etTotal.setText(total.toString());//Changes total in EditText
+                        float costCurrent = (getPreviousNum()-num)*price;
+                        float previousTotal = Float.valueOf(etTotal.getText().toString());//Gets total in EditText
+                        float total = previousTotal - costCurrent; //Makes new total
+                        BigDecimal bd = new BigDecimal(Float.toString(total));//Creating object of BigDecimal passing total as string
+                        bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);//Using BD setScale method to indicate num of decimal places
+                        etTotal.setText(bd.toString());//Changes total in EditText
                     }
                     setPreviousNum(num);
                 }

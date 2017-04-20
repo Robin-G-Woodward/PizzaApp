@@ -5,8 +5,10 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,45 +16,97 @@ import android.widget.ImageView;
 import android.graphics.Color;
 
 
+import java.util.ArrayList;
+
+
+
 public class Design extends Activity {
+
+    private final static String TAG = "DesignActivity";
+
+    Button buttonSmall;
+    Button buttonMedium;
+    Button buttonLarge;
+    Button buttonCompleteDesign;
+    Button buttonBack;
+
+    ArrayList<String> designOrderArrayListOfStrings;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private String username;
+
+
+    public void setStateOfOrder(boolean stateOfOrder) {
+        this.stateOfOrder = stateOfOrder;
+    }
+
+    private boolean stateOfOrder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //Set XML layout
+        super.onCreate(savedInstanceState);//Set XML layout
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++){
+            Log.i(TAG, "On Create .....");
+        }
         ///////////////////////////////////////////////////////////////////////////
         setContentView(R.layout.activity_design);
         setContext(this);
         ///////////////////////////////////////////////////////////////////////////
-        final Button buttonSmall = (Button)findViewById(R.id.buttonSmall);
-        final Button buttonMedium = (Button)findViewById(R.id.buttonMeduim);
-        final Button buttonLarge = (Button)findViewById(R.id.buttonLarge);
+        Intent intent = getIntent();
+        setName(intent.getStringExtra("name"));
+        setUsername(intent.getStringExtra("username"));
+        setStateOfOrder(intent.getBooleanExtra("menuFinalized",false));
+        /////////////////////////////////////////////////////////////////////////////
+        buttonSmall = (Button)findViewById(R.id.buttonSmall); //Define the four size buttons
+        buttonMedium = (Button)findViewById(R.id.buttonMeduim);//inside scope of the onCreate method
+        buttonLarge = (Button)findViewById(R.id.buttonLarge);
+        buttonCompleteDesign = (Button)findViewById(R.id.buttonCompleteDesign);
+        buttonBack = (Button)findViewById(R.id.buttonBack);
 
-        buttonSmall.setTag("small");
+        buttonSmall.setTag("small"); //Give each button a tag which is string of the corresponding
         buttonMedium.setTag("medium");
         buttonLarge.setTag("large");
 
-        View.OnClickListener onClickListenerSize = new View.OnClickListener() {
+        View.OnClickListener onClickListenerSize = new View.OnClickListener() { //Listener for buttons that change pizza size
             @Override
             public void onClick(View v){
-                String size = (String)v.getTag();
-                if(size.equals("small")){
-                    buttonSmall.setBackgroundColor(Color.RED);
-                    DesignOrder order = getOrder();
-                    String prevoiusSize = order.getSize();
-                    if(prevoiusSize.equals("small")){
+                String size = (String)v.getTag();//Get the size of the button clicked
+                if(size.equals("small")){//If the small size chosen
+                    buttonSmall.setBackgroundColor(Color.RED);//Set clicked size button to red
+                    DesignOrder order = getOrder();//Create variable of current order
+                    String prevoiusSize = order.getSize();//Getter method to create string of old size
+                    if(prevoiusSize.equals("small")){//If old size is small set small button back to default look.
                         buttonSmall.setBackgroundResource(android.R.drawable.btn_default);
                     }
-                    else if(prevoiusSize.equals("medium")){
+                    else if(prevoiusSize.equals("medium")){//If old size is large set large button back to default look.
                         buttonMedium.setBackgroundResource(android.R.drawable.btn_default);
                     }
-                    else if(prevoiusSize.equals("large")){
+                    else if(prevoiusSize.equals("large")){//If old size is large set large button back to default look.
                         buttonLarge.setBackgroundResource(android.R.drawable.btn_default);
                     }
-                    order.setSize(size);
-                    order.total();
+                    order.setSize(size);//Setter method to correct size to new one clicked
+                    order.total();//Recalculate and amend price
                 }
-                else if(size.equals("medium")){
+                else if(size.equals("medium")){//If the medium size chosen
                     buttonMedium.setBackgroundColor(Color.RED);
                     DesignOrder order = getOrder();
                     String prevoiusSize = order.getSize();
@@ -68,7 +122,7 @@ public class Design extends Activity {
                     order.setSize(size);
                     order.total();
                 }
-                else{
+                else{ //If the large size chosen
                     buttonLarge.setBackgroundColor(Color.RED);
                     DesignOrder order = getOrder();
                     String prevoiusSize = order.getSize();
@@ -87,9 +141,50 @@ public class Design extends Activity {
             }
         };
 
-        buttonSmall.setOnClickListener(onClickListenerSize);
+        View.OnClickListener onClickListenerCompleteDesign = new View.OnClickListener() { //Listener for button to head back to Menu_Design activity
+            @Override
+            public void onClick(View v){
+
+                DesignOrder designorder = getOrder();
+
+                String size = designorder.getSize();
+                String total = designorder.getTotal();
+
+                designOrderArrayListOfStrings = designorder.getToppings();
+                designOrderArrayListOfStrings.add(0,"Design_Total:");
+                designOrderArrayListOfStrings.add(1,total);
+                designOrderArrayListOfStrings.add(2,"Size:");
+                designOrderArrayListOfStrings.add(3,size);
+
+                Intent menuDesignIntent = new Intent(Design.this,Menu_Design.class);
+                menuDesignIntent.putStringArrayListExtra("designOrder",designOrderArrayListOfStrings);
+                menuDesignIntent.putExtra("name", name);
+                menuDesignIntent.putExtra("username", username);
+
+                setResult(RESULT_OK,menuDesignIntent);
+
+                finish();
+
+            }};
+
+        View.OnClickListener onClickListenerBack = new View.OnClickListener() { //Listener for button to head back to Menu_Design activity
+            @Override
+            public void onClick(View v){
+
+                Intent menuDesignIntent = new Intent(Design.this,Menu_Design.class);
+                menuDesignIntent.putExtra("name", name);
+                menuDesignIntent.putExtra("username", username);
+                menuDesignIntent.putExtra("menuFinalized",stateOfOrder);
+                startActivity(menuDesignIntent);
+
+            }};
+
+        buttonSmall.setOnClickListener(onClickListenerSize);//Setting the buttons with the following listener above
         buttonMedium.setOnClickListener(onClickListenerSize);
         buttonLarge.setOnClickListener(onClickListenerSize);
+        buttonCompleteDesign.setOnClickListener(onClickListenerCompleteDesign);
+        buttonBack.setOnClickListener(onClickListenerBack);
+
 
         /////////////////////////////////////////////////////////////////////////////
         ImageView IVham = (ImageView) findViewById(R.id.IVham);
@@ -129,6 +224,7 @@ public class Design extends Activity {
                 order.total();
                 setOrder(order); //Set order
 
+                //Decision to highlight corresponding size button depending on the  size chosen
                 if(size.equals("small")){
                     buttonSmall.setBackgroundColor(Color.RED);
                 }
@@ -148,7 +244,60 @@ public class Design extends Activity {
         large.setOnClickListener(onDialogClickedListener);
     }
 
-//Outside onCreate method
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++){
+            Log.i(TAG, "On Destroy .....");
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++) {
+            Log.i(TAG, "On Pause .....");
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        for(int i = 0;i<10;i++) {
+            Log.i(TAG, "On Restart .....");
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++) {
+            Log.i(TAG, "On Resume .....");
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++){
+            Log.i(TAG, "On Start .....");
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //Used to identify when each activity lifecycle method is started
+        for(int i = 0;i<10;i++) {
+            Log.i(TAG, "On Stop .....");
+        }
+    }
+
+
 
     View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
         @Override

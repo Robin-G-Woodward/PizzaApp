@@ -46,8 +46,6 @@ public class Register extends Activity {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
 
-
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() { // Making an object to listen for a response
                     @Override                                                                  // is a response is heard then the onresponse
                                                                                                // method is ran

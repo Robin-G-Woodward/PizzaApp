@@ -21,6 +21,15 @@
                 android:id="@+id/tvmenu"
                 android:textSize="70sp"
                 android:layout_weight="14"/>
+
+            <Button
+                android:text="Finalize Menu Order"
+                android:id="@+id/buttonCompleteMenu"/>
+
+            <Button
+                android:text="Back"
+                android:id="@+id/buttonBack"/>
+
             <TextView
                 android:text="Total:"
                 android:layout_width="wrap_content"
@@ -193,7 +202,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA1"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallMargherita"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -206,7 +216,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB1"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumMargherita"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -219,7 +230,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC1"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeMargherita"/>
         </TableRow>
         <TableRow>
 
@@ -270,7 +282,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA2"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallQuatroFormaggio"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -283,7 +296,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB2"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumQuatroFormaggio"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -296,7 +310,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC2"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeQuatroFormaggio"/>
         </TableRow>
         <TableRow>
 
@@ -348,7 +363,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA3"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallAlFunghi"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -361,7 +377,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB3"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumAlFunghi"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -374,7 +391,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC3"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeAlFunghi"/>
         </TableRow>
         <TableRow>
 
@@ -426,7 +444,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA4"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallVegetariano"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -439,7 +458,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB4"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumVegetariano"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -452,7 +472,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC4"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeVegetariano"/>
         </TableRow>
 
         <TableRow
@@ -507,7 +528,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA5"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallSpeciale"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -520,7 +542,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB5"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumSpeciale"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -533,7 +556,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC5"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeSpeciale"/>
         </TableRow>
 
         <TableRow>
@@ -585,7 +609,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA6"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallMightyMeaty"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -598,7 +623,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB6"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumMightyMeaty"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -611,7 +637,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC6"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeMightyMeaty"/>
         </TableRow>
         <TableRow>
 
@@ -662,7 +689,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA7"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallValention"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -675,7 +703,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB7"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumValention"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -688,7 +717,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC7"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeValention"/>
         </TableRow>
         <TableRow>
 
@@ -739,7 +769,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA8"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallStagioni"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -752,7 +783,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB8"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumStagioni"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -765,7 +797,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC8"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeStagioni"/>
         </TableRow>
         <TableRow>
 
@@ -816,7 +849,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA9"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallHawaiian"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -829,7 +863,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB9"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumHawaiian"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -842,7 +877,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC9"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeHawaiian"/>
         </TableRow>
         <TableRow>
 
@@ -893,7 +929,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA10"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallPancetta"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -906,7 +943,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB10"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumPancetta"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -919,7 +957,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC10"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargePancetta"/>
         </TableRow>
         <TableRow>
 
@@ -970,7 +1009,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA11"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallQuatroStagioni"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -983,7 +1023,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB11"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumQuatroStagioni"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -996,7 +1037,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC11"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeQuatroStagioni"/>
         </TableRow>
         <TableRow>
 
@@ -1048,7 +1090,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA12"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallToscanna"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1061,7 +1104,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB12"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumToscanna"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1074,7 +1118,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC12"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeToscanna"/>
         </TableRow>
         <TableRow>
 
@@ -1125,7 +1170,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA13"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallPepperoni"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1138,7 +1184,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB13"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumPepperoni"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1151,7 +1198,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC13"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargePepperoni"/>
         </TableRow>
         <TableRow>
             <TextView
@@ -1202,7 +1250,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA14"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallSiciliano"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1215,7 +1264,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB14"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumSiciliano"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1228,7 +1278,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC14"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeSiciliano"/>
         </TableRow>
         <TableRow>
 
@@ -1279,7 +1330,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA15"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallBologneseSupremo"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1292,7 +1344,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB15"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumBologneseSupremo"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1305,12 +1358,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC15"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeBologneseSupremo"/>
         </TableRow>
         <TableRow>
 
             <TextView
-                android:text="Poll0"
+                android:text="Pollo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView150"
@@ -1356,7 +1410,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA16"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallPollo"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1369,7 +1424,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB16"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumPollo"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1382,7 +1438,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC16"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargePollo"/>
         </TableRow>
         <TableRow>
 
@@ -1433,7 +1490,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA17"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallPolloFunghi"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1446,7 +1504,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB17"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumPolloFunghi" />
+
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1459,7 +1519,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC17"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargePolloFunghi"/>
         </TableRow>
         <TableRow>
 
@@ -1510,7 +1571,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA18"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallBBQChicken"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1523,7 +1585,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB18"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumBBQChicken"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1536,7 +1599,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC18"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeBBQChicken"/>
         </TableRow>
         <TableRow>
 
@@ -1588,7 +1652,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA19"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallMexicano"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1601,7 +1666,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB19"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumMexicano"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1614,7 +1680,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC19"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeMexicano"/>
         </TableRow>
         <TableRow>
 
@@ -1665,7 +1732,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA20"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallHotAndSpicy"/>
 
             <TextView
                 android:text="M"
@@ -1679,7 +1747,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB20"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumHotAndSpicy"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1692,7 +1761,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC20"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeHotAndSpicy"/>
         </TableRow>
         <TableRow>
 
@@ -1743,7 +1813,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA21"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallHotBeef"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1756,7 +1827,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB21"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumHotBeef"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1769,7 +1841,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC21"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeHotBeef"/>
         </TableRow>
         <TableRow>
 
@@ -1820,7 +1893,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA22"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallSpicyChicken"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1833,7 +1907,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB22"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumSpicyChicken"/>
+
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1846,7 +1922,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC22"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeSpicyChicken"/>
         </TableRow>
         <TableRow>
 
@@ -1897,7 +1974,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA23"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallSpicyCombo"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1910,7 +1988,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB23"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumSpicyCombo"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -1923,7 +2002,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC23"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeSpicyCombo"/>
         </TableRow>
         <TableRow>
 
@@ -1975,7 +2055,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA24"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallMarinara"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -1988,7 +2069,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB24"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumMarinara"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -2001,7 +2083,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC24"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeMarinara"/>
         </TableRow>
         <TableRow>
 
@@ -2052,7 +2135,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA25"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallCaribbean"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -2065,7 +2149,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB25"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumCaribbean"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -2078,7 +2163,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC25"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeCaribbean"/>
         </TableRow>
         <TableRow>
 
@@ -2130,7 +2216,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA26"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallAllMighty"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -2143,7 +2230,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB26"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumAllMighty"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -2156,7 +2244,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC26"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeAllMighty"/>
         </TableRow>
         <TableRow>
 
@@ -2207,7 +2296,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spA27"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/SmallBBQMeatballMayhem"/>
             <TextView
                 android:text="M"
                 android:layout_width="0dp"
@@ -2220,7 +2310,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spB27"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/MediumBBQMeatballMayhem"/>
             <TextView
                 android:text="L"
                 android:layout_width="0dp"
@@ -2233,7 +2324,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spC27"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.25"
+                android:tag="@string/LargeBBQMeatballMayhem"/>
         </TableRow>
 
     </TableLayout>
